@@ -36,11 +36,9 @@ public class Calc {
         }
     }
 // Questão 3
-    public String Hora(){
-        Calendar hora = Calendar.getInstance();
-        Calendar now = new Calendar();
-        int horario;
-        horario = now.get(Calendar.HOUR_OF_DAY);
+    public void Hora(){
+        Calendar now = Calendar.getInstance();
+        int horario = now.get(Calendar.HOUR_OF_DAY);
 
         if (horario >= 5 || horario <= 11){
             System.out.println("Bom dia");
