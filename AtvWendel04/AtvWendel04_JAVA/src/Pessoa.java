@@ -7,22 +7,16 @@ public class Pessoa {
     private String name;
     private LocalDate birth;
     public String surname = "";
-    public int age;
 
     public Pessoa(String name, String birthDate) {
         this.name = name;
         this.birth = LocalDate.parse(birthDate, DateTimeFormatter.ISO_LOCAL_DATE);
-        this.calcAge();
     }
 
-    private void calcAge() {
+    private int calcAge() {
         LocalDate now = LocalDate.now();
         Period period = Period.between(birth, now);
-        age = period.getYears();
-    }
-
-    public int getAge() {
-        return age;
+        return period.getYears();
     }
 
     public String hello() {
@@ -40,6 +34,6 @@ public class Pessoa {
             times = "madrugada";
         }
 
-        return "Boa " + times + ", me chamo " + this.name + ", mas meu apelido é " + this.surname + ", tenho " + getAge() + " anos.";
+        return "Boa " + times + ", me chamo " + this.name + ", mas meu apelido é " + this.surname + ", tenho " + calcAge() + " anos.";
     }
 }
